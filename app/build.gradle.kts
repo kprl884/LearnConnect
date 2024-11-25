@@ -62,7 +62,6 @@ dependencies {
     api(libs.bundles.lifecycleDependencies)
     api(libs.bundles.coroutinesDependencies)
     api(libs.hiltNavCompose)
-    api(libs.coilCompose)
     api(libs.navCompose)
     api(libs.navCommon)
     api(libs.kotlinSerializationJson)
@@ -76,4 +75,5 @@ dependencies {
     implementation(libs.google.fonts)
     implementation (libs.lottie)
     implementation (libs.lottie.compose)
+    implementation (libs.gson)
 }

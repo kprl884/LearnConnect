@@ -5,22 +5,22 @@ import com.example.learnconnect.LearnConnectApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
 object AppModule {
-
-    @Singleton
     @Provides
-    @BaseSDK
-    fun provideContext(application: LearnConnectApplication): Context {
-        return application.applicationContext
+    @Singleton
+    fun provideApplication(): LearnConnectApplication {
+        return LearnConnectApplication()
     }
 
-    @Qualifier
-    @Retention(AnnotationRetention.BINARY)
-    annotation class BaseSDK
+    @Provides
+    @Singleton
+    fun provideApplicationContext(@ApplicationContext context: Context): Context {
+        return context
+    }
 }

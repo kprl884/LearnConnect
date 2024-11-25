@@ -1,23 +1,19 @@
-package com.example.learnconnect.ui.login
+package com.example.learnconnect.ui.auth.nav
 
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import androidx.navigation.navDeepLink
-import com.example.learnconnect.core.navigation.DeepLinkConstants.LOGIN_DEEPLINK
 import com.example.learnconnect.core.navigation.NavRegisterer
 import com.example.learnconnect.core.navigation.Screen
+import com.example.learnconnect.ui.auth.AuthViewModel
+import com.example.learnconnect.ui.auth.LoginScreen
 
 class LoginNavRegisterer : NavRegisterer {
     override fun registerGraph(navGraphBuilder: NavGraphBuilder, navController: NavController) {
-        navGraphBuilder.composable<Screen.LoginScreen>(
-            deepLinks = listOf(
-                navDeepLink {
-                    uriPattern = LOGIN_DEEPLINK
-                }
-            )
-        ) {
-            LoginScreen()
+        navGraphBuilder.composable<Screen.LoginScreen> {
+            val viewModel = hiltViewModel<AuthViewModel>()
+            LoginScreen(viewModel, {})
         }
     }
 }

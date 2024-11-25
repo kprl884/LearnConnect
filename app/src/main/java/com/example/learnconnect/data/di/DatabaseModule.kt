@@ -1,8 +1,9 @@
 package com.example.learnconnect.data.di
-/*
+
 import android.content.Context
 import androidx.room.Room
-import com.example.learnconnect.domain.AppDatabase
+import com.example.learnconnect.data.local.AppDatabase
+import com.example.learnconnect.data.local.preferences.UserPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +14,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
-    
+
     @Provides
     @Singleton
     fun provideDatabase(
@@ -23,6 +24,11 @@ object DatabaseModule {
         AppDatabase::class.java,
         "app_database"
     ).build()
-}
 
- */
+
+    @Provides
+    @Singleton
+    fun provideUserPreferences(@ApplicationContext context: Context): UserPreferences {
+        return UserPreferences(context)
+    }
+}
