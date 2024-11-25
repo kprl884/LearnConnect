@@ -1,21 +1,28 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.androidApplicationPlugin)
+    alias(libs.plugins.kotlinAndroidPlugin)
+    alias(libs.plugins.hiltPlugin)
+    alias(libs.plugins.kspPlugin)
+    alias(libs.plugins.kotlinParcelize)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 android {
     namespace = "com.example.learnconnect"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.learnconnect"
         minSdk = 30
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -28,32 +35,45 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    api(libs.bundles.moshiDependencies)
+    api(libs.hiltAndroid)
+    ksp(libs.hiltAndroidCompiler)
+    api(libs.bundles.lifecycleDependencies)
+    api(libs.bundles.coroutinesDependencies)
+    api(libs.hiltNavCompose)
+    api(libs.coilCompose)
+    api(libs.navCompose)
+    api(libs.navCommon)
+    api(libs.kotlinSerializationJson)
+    api(libs.roomKtx)
+    api(libs.roomRuntime)
+    ksp(libs.roomCompiler)
+    api(libs.bundles.androidxDependencies)
+    api(libs.bundles.composeDependencies)
+    api(libs.coil)
+    debugImplementation(libs.composeUiTooling)
+    implementation(libs.google.fonts)
+    implementation (libs.lottie)
+    implementation (libs.lottie.compose)
 }

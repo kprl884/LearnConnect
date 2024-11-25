@@ -1,32 +1,176 @@
 [versions]
-agp = "8.8.0-alpha05"
-kotlin = "2.0.0"
-coreKtx = "1.15.0"
+agp = "8.4.2"
+kotlin = "1.9.22"
+coreKtx = "1.13.1"
+lifecycleRuntimeKtx = "2.8.2"
+activityCompose = "1.9.0"
+composeBom = "2024.06.00"
+lottie = "6.6.0"
+retrofit = "2.9.0"
+okhttp = "5.0.0-alpha.14"
+coroutine = "1.8.0"
+lifecycle = "2.8.2"
+room = "2.6.1"
+verMoshi = "1.15.0"
+verCompose = "1.6.3"
+verGradle = "8.3.2"
+jetbrainsKotlinJvm = "1.9.22"
+appcompat = "1.7.0"
+annotation = "1.8.0"
+constraintlayout = "1.1.0-alpha13"
+material3 = "1.2.1"
+verHilt = "2.51"
+verHiltNavi = "1.2.0"
+verHiltCompiler = "1.2.0"
+verNavigation = "2.8.0"
+coilCompose = "2.7.0"
+verKsp = "1.9.22-1.0.18"
+material = "1.12.0"
 junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.7"
-activityCompose = "1.9.3"
-composeBom = "2024.04.01"
+junitVersion = "1.2.0"
+espressoCore = "3.6.0"
+serialization = "1.6.3"
+coil = "2.7.0"
+googleServices = "4.4.0"
+firebase-bom = "33.1.1"
+firebase-analytics = "21.3.0"
+kapt = "1.9.0"
+firebaseMessagingKtx = "24.0.0"
+googleFonts = "1.6.8"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+coreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+appCompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+lifecycleKtx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+activityCompose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+annotationCompat = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+
+liveDataKtx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleRuntimeKtx" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie" }
+viewModelKtx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
+
+viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+lifecycleReactivestreams = { group = "androidx.lifecycle", name = "lifecycle-reactivestreams-ktx", version.ref = "lifecycleRuntimeKtx" }
+lifecycleCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+composeUi = { group = "androidx.compose.ui", name = "ui" , version.ref = "verCompose"}
+composeGraphics = { group = "androidx.compose.ui", name = "ui-graphics" , version.ref = "verCompose"}
+composeUiTooling = { group = "androidx.compose.ui", name = "ui-tooling" , version.ref = "verCompose"}
+composeUiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" , version.ref = "verCompose"}
+composeUtil = { group = "androidx.compose.ui", name = "ui-util", version.ref = "verCompose" }
+constraintCompose= { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout" }
+
+materialCompose3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+materialCompose = { group = "androidx.compose.material", name = "material", version.ref = "verCompose" }
+materialIconCompose = { group = "androidx.compose.material", name = "material-icons-core", version.ref = "verCompose" }
+materialIconExtCompose = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "verCompose" }
+materialRippleCompose = { group = "androidx.compose.material", name = "material-ripple", version.ref = "verCompose" }
+runtimeCompose = { group = "androidx.compose.runtime", name = "runtime", version.ref = "verCompose" }
+
+coroutinesCore = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutine" }
+coroutinesAndroid = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutine" }
+
+hiltAndroid = { group = "com.google.dagger", name = "hilt-android", version.ref = "verHilt" }
+hiltAndroidCompiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "verHilt" }
+hiltNavCompose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "verHiltNavi" }
+hiltCompiler= { group = "androidx.hilt", name = "hilt-compiler", version.ref = "verHiltCompiler" }
+
+coilCompose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
+
+navCompose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "verNavigation" }
+navCommon = { group = "androidx.navigation", name = "navigation-common", version.ref = "verNavigation" }
+
+clientRetrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+moshiConverter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+okhttpLogging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "verMoshi" }
+kotlinMoshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "verMoshi" }
+
+roomRuntime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+roomCompiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+roomKtx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+kotlinSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization"}
+firebase-messaging-ktx = { group = "com.google.firebase", name = "firebase-messaging-ktx", version.ref = "firebaseMessagingKtx" }
+google-fonts = { module = "androidx.compose.ui:ui-text-google-fonts", version.ref = "googleFonts" }
+
+coil = { module = "io.coil-kt:coil-compose", version.ref = "coil"}
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+androidApplicationPlugin = { id = "com.android.application", version.ref = "agp" }
+androidLibraryPlugin= { id = "com.android.library", version.ref = "verGradle" }
+kotlinAndroidPlugin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinJvmPlugin = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kspPlugin = { id = "com.google.devtools.ksp", version.ref = "verKsp" }
+hiltPlugin = { id = "com.google.dagger.hilt.android", version.ref = "verHilt" }
+kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref = "kotlin"  }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }
 
+[bundles]
+androidxDependencies = [
+    "coreKtx",
+    "appCompat",
+    "activityCompose",
+    "annotationCompat",
+]
+
+composeDependencies = [
+    "constraintCompose",
+    "materialCompose3",
+    "materialCompose",
+    "materialIconCompose",
+    "materialIconExtCompose",
+    "materialRippleCompose",
+    "runtimeCompose",
+    "androidx-compose-bom",
+    "composeUi",
+    "composeUiTooling",
+    "composeUtil",
+    "composeGraphics",
+]
+
+coroutinesDependencies = [
+    "coroutinesCore",
+    "coroutinesAndroid"
+]
+
+navigationDependencies = [
+    "navCompose",
+    "navCommon"
+]
+
+lifecycleDependencies = [
+    "lifecycleKtx",
+    "liveDataKtx",
+    "viewModelKtx",
+    "viewModelCompose",
+    "lifecycleReactivestreams",
+    "lifecycleCompose"
+]
+
+restClientDependencies = [
+    "clientRetrofit",
+    "moshiConverter",
+    "okhttpLogging",
+]
+
+moshiDependencies = [
+    "moshi",
+    "kotlinMoshi",
+]
+
+kotlinDependencies = [
+    "kotlinSerializationJson",
+]
