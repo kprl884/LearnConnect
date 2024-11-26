@@ -32,8 +32,8 @@ fun LoginScreen(
     onAuthSuccess: () -> Unit,
     navigateRegisterScreen: () -> Unit
 ) {
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("test@test.com") }
+    var password by remember { mutableStateOf("12345678") }
     val authState by viewModel.authState.collectAsStateWithLifecycle()
 
     LaunchedEffect(authState) {

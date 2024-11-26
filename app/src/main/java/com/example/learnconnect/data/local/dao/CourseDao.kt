@@ -9,6 +9,12 @@ import com.example.learnconnect.data.local.entity.EnrolledCourseEntity
 
 @Dao
 interface CourseDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertCourse(course: CourseEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertCourses(courses: List<CourseEntity>)
+
     @Query("SELECT * FROM courses")
     suspend fun getAllCourses(): List<CourseEntity>
 

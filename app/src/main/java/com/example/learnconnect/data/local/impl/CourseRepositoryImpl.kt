@@ -2,14 +2,28 @@ package com.example.learnconnect.data.local.impl
 
 import com.example.learnconnect.data.local.dao.CourseDao
 import com.example.learnconnect.data.local.entity.EnrolledCourseEntity
+import com.example.learnconnect.data.local.mock.MockCourseData
 import com.example.learnconnect.data.local.preferences.UserPreferences
 import com.example.learnconnect.domain.model.Course
 import com.example.learnconnect.domain.repository.CourseRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class CourseRepositoryImpl(
     private val courseDao: CourseDao,
     private val userPreferences: UserPreferences
 ) : CourseRepository {
+
+    init {
+        CoroutineScope(Dispatchers.IO).launch {
+            if (courseDao.getAllCourses().isEmpty()) {
+                MockCourseData.getMockCourses().forEach { course ->
+                    courseDao.insertCourse(course)
+                }
+            }
+        }
+    }
 
     override suspend fun getAllCourses(): Result<List<Course>> {
         return try {
