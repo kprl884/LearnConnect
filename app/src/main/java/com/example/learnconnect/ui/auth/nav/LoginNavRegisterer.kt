@@ -13,7 +13,13 @@ class LoginNavRegisterer : NavRegisterer {
     override fun registerGraph(navGraphBuilder: NavGraphBuilder, navController: NavController) {
         navGraphBuilder.composable<Screen.LoginScreen> {
             val viewModel = hiltViewModel<AuthViewModel>()
-            LoginScreen(viewModel, {})
+            LoginScreen(
+                viewModel = viewModel,
+                onAuthSuccess = {
+                    navController.navigate(Screen.HomeScreen)
+                },
+                navigateRegisterScreen = { navController.navigate(Screen.RegisterScreen) }
+            )
         }
     }
 }

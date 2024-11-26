@@ -25,15 +25,6 @@ class AuthViewModel @Inject constructor(
                 .onFailure { _authState.value = AuthState.Error(it.message ?: "Unknown error") }
         }
     }
-
-    fun signIn(email: String, password: String) {
-        viewModelScope.launch {
-            _authState.value = AuthState.Loading
-            authRepository.signIn(email, password)
-                .onSuccess { _authState.value = AuthState.Success(it) }
-                .onFailure { _authState.value = AuthState.Error(it.message ?: "Unknown error") }
-        }
-    }
 }
 
 sealed class AuthState {

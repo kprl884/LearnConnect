@@ -26,22 +26,14 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
-@PreviewScreenSizes
-@Composable
-fun LoginScreenPreview() {
-    //LoginScreen()
-}
-
-
 @Composable
 fun LoginScreen(
     viewModel: AuthViewModel = hiltViewModel(),
-    onAuthSuccess: () -> Unit
+    onAuthSuccess: () -> Unit,
+    navigateRegisterScreen: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var isSignUp by remember { mutableStateOf(false) }
-
     val authState by viewModel.authState.collectAsStateWithLifecycle()
 
     LaunchedEffect(authState) {
@@ -58,7 +50,7 @@ fun LoginScreen(
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = if (isSignUp) "Sign Up" else "Sign In",
+            text = "Sign In",
             style = MaterialTheme.typography.headlineMedium
         )
 
@@ -91,23 +83,25 @@ fun LoginScreen(
 
         Button(
             onClick = {
-                if (isSignUp) {
-                    viewModel.signUp(email, password)
-                } else {
-                    viewModel.signIn(email, password)
-                }
+                viewModel.signUp(email, password)
             },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp)
         ) {
-            Text(if (isSignUp) "Sign Up" else "Sign In")
+            Text("Sign In")
         }
 
         TextButton(
-            onClick = { isSignUp = !isSignUp }
+            onClick = { navigateRegisterScreen() }
         ) {
-            Text(if (isSignUp) "Already have an account? Sign In" else "Don't have an account? Sign Up")
+            Text("Already have an account? Sign In")
         }
     }
+}
+
+@PreviewScreenSizes
+@Composable
+fun LoginScreenPreview() {
+    //LoginScreen()
 }
