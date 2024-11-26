@@ -1,7 +1,7 @@
 package com.example.learnconnect.utils
 
 import com.example.learnconnect.domain.User
-import com.example.learnconnect.data.local.UserEntity
+import com.example.learnconnect.data.local.entity.UserEntity
 
 object Extensions {
     fun UserEntity.toDomain() = User(
@@ -9,8 +9,4 @@ object Extensions {
         email = email,
         password = password
     )
-
-    private fun String.verifyPassword(hashedPassword: String): Boolean {
-        return this == hashedPassword
-    }
 }

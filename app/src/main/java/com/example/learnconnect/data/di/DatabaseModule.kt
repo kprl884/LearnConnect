@@ -3,6 +3,8 @@ package com.example.learnconnect.data.di
 import android.content.Context
 import androidx.room.Room
 import com.example.learnconnect.data.local.AppDatabase
+import com.example.learnconnect.data.local.dao.CourseDao
+import com.example.learnconnect.data.local.dao.UserDao
 import com.example.learnconnect.data.local.preferences.UserPreferences
 import dagger.Module
 import dagger.Provides
@@ -30,5 +32,17 @@ object DatabaseModule {
     @Singleton
     fun provideUserPreferences(@ApplicationContext context: Context): UserPreferences {
         return UserPreferences(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserDao(context: Context): UserDao {
+        return AppDatabase.getInstance(context).userDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideCourseDao(context: Context): CourseDao {
+        return AppDatabase.getInstance(context).courseDao()
     }
 }

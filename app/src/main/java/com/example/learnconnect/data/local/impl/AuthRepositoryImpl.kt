@@ -1,5 +1,7 @@
-package com.example.learnconnect.data.local
+package com.example.learnconnect.data.local.impl
 
+import com.example.learnconnect.data.local.dao.UserDao
+import com.example.learnconnect.data.local.entity.UserEntity
 import com.example.learnconnect.data.local.preferences.UserPreferences
 import com.example.learnconnect.domain.AuthRepository
 import com.example.learnconnect.domain.User
@@ -30,13 +32,7 @@ class AuthRepositoryImpl(
         return try {
             val userEntity = userDao.getUserByEmail(email)
                 ?: return Result.failure(Exception("User not found"))
-            /*
-            if (!password.verifyPassword(userEntity.password)) {
-                return Result.failure(Exception("Invalid password"))
-            }
 
-
-             */
             val user = userEntity.toDomain()
             userPreferences.saveUser(user)
             Result.success(user)

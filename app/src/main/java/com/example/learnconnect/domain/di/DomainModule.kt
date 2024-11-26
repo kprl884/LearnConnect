@@ -1,11 +1,12 @@
 package com.example.learnconnect.domain.di
 
-import android.content.Context
-import com.example.learnconnect.data.local.AppDatabase
-import com.example.learnconnect.data.local.AuthRepositoryImpl
-import com.example.learnconnect.data.local.UserDao
+import com.example.learnconnect.data.local.impl.AuthRepositoryImpl
+import com.example.learnconnect.data.local.impl.CourseRepositoryImpl
+import com.example.learnconnect.data.local.dao.CourseDao
+import com.example.learnconnect.data.local.dao.UserDao
 import com.example.learnconnect.data.local.preferences.UserPreferences
 import com.example.learnconnect.domain.AuthRepository
+import com.example.learnconnect.domain.repository.CourseRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,9 +18,11 @@ import javax.inject.Singleton
 object DomainModule {
     @Provides
     @Singleton
-    fun provideUserDao(context: Context): UserDao {
-        return AppDatabase.getInstance(context).userDao()
+    fun providesCourseRepository(courseDao: CourseDao, userPreferences: UserPreferences): CourseRepository {
+        return CourseRepositoryImpl(courseDao, userPreferences)
     }
+
+
 
     @Provides
     @Singleton

@@ -4,6 +4,7 @@ import com.example.learnconnect.core.navigation.NavProvider
 import com.example.learnconnect.core.navigation.NavProviderItem
 import com.example.learnconnect.ui.auth.nav.LoginNavRegisterer
 import com.example.learnconnect.ui.auth.nav.RegisterNavRegisterer
+import com.example.learnconnect.ui.courses.MyCoursesNavRegisterer
 import com.example.learnconnect.ui.home.HomeNavRegisterer
 import com.example.learnconnect.ui.splash.nav.SplashNavRegisterer
 import dagger.Module
@@ -24,6 +25,7 @@ object NavModule {
             NavProviderItem(screen = LoginNavRegisterer()),
             NavProviderItem(screen = RegisterNavRegisterer()),
             NavProviderItem(screen = HomeNavRegisterer()),
+            NavProviderItem(screen = MyCoursesNavRegisterer()),
         )
     )
 }
