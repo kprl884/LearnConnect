@@ -61,7 +61,7 @@ veya Shift + F10
 
 
 🏗️ Proje Yapısı
-Copyapp/
+app/
 ├── data/
 │   ├── local/
 │   │   ├── dao/
@@ -75,6 +75,7 @@ Copyapp/
 │   ├── profile/
 │   └── video/
 └── utils/
+
 🎯 Mimari
 Proje Clean Architecture prensiplerini takip eder:
 
