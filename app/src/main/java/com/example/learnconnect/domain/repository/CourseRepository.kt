@@ -7,4 +7,8 @@ interface CourseRepository {
     suspend fun getEnrolledCourses(): Result<List<Course>>
     suspend fun enrollCourse(courseId: String): Result<Boolean>
     suspend fun getCourseDetail(courseId: String): Result<Course>
+    suspend fun getFavoriteCourses(): Result<List<Course>>
+    suspend fun addToFavorites(course: Course): Result<Boolean>
+    suspend fun removeFromFavorites(courseId: String): Result<Boolean>
+    suspend fun isFavorite(courseId: String): Result<Boolean>
 }

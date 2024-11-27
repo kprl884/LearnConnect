@@ -2,7 +2,7 @@ package com.example.learnconnect.ui.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.learnconnect.domain.AuthRepository
+import com.example.learnconnect.domain.repository.AuthRepository
 import com.example.learnconnect.domain.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

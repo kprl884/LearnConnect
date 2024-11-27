@@ -13,6 +13,7 @@ class HomeNavRegisterer : NavRegisterer {
     ) {
         navGraphBuilder.composable<Screen.HomeScreen> {
             HomeScreen(
+                navController = navController,
                 onNavigateToMyCourses = {
                     navController.navigate(Screen.MyCoursesScreen)
                 }

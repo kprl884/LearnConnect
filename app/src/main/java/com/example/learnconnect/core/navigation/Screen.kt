@@ -13,4 +13,8 @@ sealed class Screen {
     data object HomeScreen: Screen()
     @Serializable
     data object MyCoursesScreen: Screen()
+    @Serializable
+    data object ProfileScreen: Screen()
+    @Serializable
+    data class VideoScreen(val videoId: String): Screen()
 }

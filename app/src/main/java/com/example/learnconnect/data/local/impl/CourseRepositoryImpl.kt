@@ -1,6 +1,9 @@
 package com.example.learnconnect.data.local.impl
 
+import com.example.learnconnect.data.Extension.toCourse
+import com.example.learnconnect.data.Extension.toFavoriteEntity
 import com.example.learnconnect.data.local.dao.CourseDao
+import com.example.learnconnect.data.local.dao.FavoriteCoursesDao
 import com.example.learnconnect.data.local.entity.EnrolledCourseEntity
 import com.example.learnconnect.data.local.mock.MockCourseData
 import com.example.learnconnect.data.local.preferences.UserPreferences
@@ -12,6 +15,7 @@ import kotlinx.coroutines.launch
 
 class CourseRepositoryImpl(
     private val courseDao: CourseDao,
+    private val favoriteCoursesDao: FavoriteCoursesDao,
     private val userPreferences: UserPreferences
 ) : CourseRepository {
 
@@ -131,5 +135,35 @@ class CourseRepositoryImpl(
         } catch (e: Exception) {
             Result.failure(e)
         }
+    }
+
+    override suspend fun getFavoriteCourses(): Result<List<Course>> = try {
+        val favorites = favoriteCoursesDao.getAllFavorites()
+        Result.success(favorites.map { it.toCourse() })
+    } catch (e: Exception) {
+        Result.failure(e)
+    }
+
+    override suspend fun addToFavorites(course: Course): Result<Boolean> = try {
+        favoriteCoursesDao.addToFavorites(course.toFavoriteEntity())
+        Result.success(true)
+    } catch (e: Exception) {
+        Result.failure(e)
+    }
+
+    override suspend fun removeFromFavorites(courseId: String): Result<Boolean> = try {
+        val course = favoriteCoursesDao.getAllFavorites().find { it.courseId == courseId }
+        course?.let {
+            favoriteCoursesDao.removeFromFavorites(it)
+        }
+        Result.success(true)
+    } catch (e: Exception) {
+        Result.failure(e)
+    }
+
+    override suspend fun isFavorite(courseId: String): Result<Boolean> = try {
+        Result.success(favoriteCoursesDao.isFavorite(courseId))
+    } catch (e: Exception) {
+        Result.failure(e)
     }
 }

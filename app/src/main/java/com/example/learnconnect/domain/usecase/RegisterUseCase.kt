@@ -1,6 +1,6 @@
 package com.example.learnconnect.domain.usecase
 
-import com.example.learnconnect.domain.AuthRepository
+import com.example.learnconnect.domain.repository.AuthRepository
 import com.example.learnconnect.domain.User
 import java.util.regex.Pattern
 import javax.inject.Inject

@@ -1,6 +1,7 @@
 package com.example.learnconnect.ui.home.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,6 +35,7 @@ import com.example.learnconnect.domain.model.Course
 fun CourseCard(
     course: Course,
     onEnrollClick: () -> Unit,
+    onVideoClick: (courseId: String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -45,25 +47,24 @@ fun CourseCard(
         shape = RoundedCornerShape(12.dp)
     ) {
         Column {
-            // Thumbnail
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(140.dp)
                     .background(MaterialTheme.colorScheme.primaryContainer)
             ) {
-                // Placeholder image - gerçek uygulamada AsyncImage kullanılmalı
                 Icon(
                     imageVector = Icons.Default.PlayCircle,
                     contentDescription = null,
                     modifier = Modifier
                         .size(48.dp)
-                        .align(Alignment.Center),
+                        .align(Alignment.Center).clickable {
+                            onVideoClick(course.id)
+                        },
                     tint = MaterialTheme.colorScheme.onPrimaryContainer
                 )
             }
 
-            // Content
             Column(
                 modifier = Modifier
                     .fillMaxWidth()

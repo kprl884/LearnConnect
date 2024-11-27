@@ -1,22 +1,24 @@
-package com.example.learnconnect.ui.courses
+package com.example.learnconnect.ui.profile
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.runtime.Composable
-import com.example.learnconnect.ui.profile.ProfileUiState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import com.example.learnconnect.domain.model.Course
 import com.example.learnconnect.ui.profile.component.CourseSection
+import com.example.learnconnect.ui.profile.component.LogoutButton
 import com.example.learnconnect.ui.profile.component.ProfileHeader
 
 @Composable
-fun MyCoursesScreen(
+fun ProfileScreen(
     uiState: ProfileUiState,
     onCourseClick: (String) -> Unit,
+    onLogoutClick: () -> Unit,
     onFavoriteClick: (Course) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -32,11 +34,20 @@ fun MyCoursesScreen(
         )
 
         CourseSection(
-            title = "Kayıtlı Kurslarım",
-            courses = uiState.enrolledCourses,
+            title = "Favori Kurslarım",
+            courses = uiState.favoriteCourses,
             onCourseClick = onCourseClick,
             onFavoriteClick = onFavoriteClick,
             modifier = Modifier
         )
+
+        LogoutButton(onClick = onLogoutClick)
     }
 }
+
+@PreviewScreenSizes
+@Composable
+fun ProfileScreenPreview() {
+    // ProfileScreen()
+}
+

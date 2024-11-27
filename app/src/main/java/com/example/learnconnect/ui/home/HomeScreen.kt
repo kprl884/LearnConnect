@@ -3,6 +3,7 @@ package com.example.learnconnect.ui.home
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -19,10 +20,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
+import com.example.learnconnect.core.navigation.Screen
 import com.example.learnconnect.ui.home.component.CourseCard
 
 @Composable
 fun HomeScreen(
+    navController: NavController,
     viewModel: HomeViewModel = hiltViewModel(),
     onNavigateToMyCourses: () -> Unit
 ) {
@@ -33,6 +37,7 @@ fun HomeScreen(
             .fillMaxSize()
             .padding(16.dp)
     ) {
+        Spacer(modifier = Modifier.padding(top = 16.dp))
         TopBar(
             onMyCoursesClick = onNavigateToMyCourses
         )
@@ -49,6 +54,9 @@ fun HomeScreen(
             items(uiState.courses) { course ->
                 CourseCard(
                     course = course,
+                    onVideoClick = {courseId ->
+                        navController.navigate(Screen.VideoScreen(courseId))
+                    },
                     onEnrollClick = {
                         viewModel.onEvent(HomeUiEvent.OnEnrollCourse(course.id))
                     }

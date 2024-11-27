@@ -60,7 +60,7 @@ class HomeViewModel @Inject constructor(
             enrollCourseUseCase(courseId)
                 .onSuccess { success ->
                     if (success) {
-                        fetchCourses() // Refresh courses after enrollment
+                        fetchCourses()
                     }
                 }
                 .onFailure { error ->
@@ -84,5 +84,5 @@ data class HomeUiState(
 
 sealed class HomeUiEvent {
     data class OnEnrollCourse(val courseId: String) : HomeUiEvent()
-    object OnRefreshCourses : HomeUiEvent()
+    data object OnRefreshCourses : HomeUiEvent()
 }

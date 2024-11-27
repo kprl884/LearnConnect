@@ -32,8 +32,23 @@ class UserPreferences(context: Context) {
         }
     }
 
+    suspend fun setLoggedIn(isLoggedIn: Boolean) {
+        withContext(Dispatchers.IO) {
+            prefs.edit()
+                .putBoolean(KEY_LOGGED_IN, isLoggedIn)
+                .apply()
+        }
+    }
+
+    suspend fun isLoggedIn(): Boolean {
+        return withContext(Dispatchers.IO) {
+            prefs.getBoolean(KEY_LOGGED_IN, false)
+        }
+    }
+
     companion object {
         private const val PREFS_NAME = "learn_connect_prefs"
         private const val KEY_USER = "user"
+        private const val KEY_LOGGED_IN = "logged_in" // Yeni key
     }
 }

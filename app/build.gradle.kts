@@ -76,4 +76,9 @@ dependencies {
     implementation (libs.lottie)
     implementation (libs.lottie.compose)
     implementation (libs.gson)
+    implementation (libs.androidx.datastore.preferences)
+    implementation (libs.androidx.datastore.preferences.core)
+    implementation (libs.androidx.media3.exoplayer)
+    implementation (libs.androidx.media3.ui)
+    implementation (libs.androidx.media3.common)
 }

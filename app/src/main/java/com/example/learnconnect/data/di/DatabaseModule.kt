@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.room.Room
 import com.example.learnconnect.data.local.AppDatabase
 import com.example.learnconnect.data.local.dao.CourseDao
+import com.example.learnconnect.data.local.dao.FavoriteCoursesDao
 import com.example.learnconnect.data.local.dao.UserDao
+import com.example.learnconnect.data.local.dao.VideoProgressDao
 import com.example.learnconnect.data.local.preferences.UserPreferences
 import dagger.Module
 import dagger.Provides
@@ -44,5 +46,17 @@ object DatabaseModule {
     @Singleton
     fun provideCourseDao(context: Context): CourseDao {
         return AppDatabase.getInstance(context).courseDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideFavoriteCoursesDao(context: Context): FavoriteCoursesDao {
+        return AppDatabase.getInstance(context).favoriteCoursesDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideVideoProgressDao(context: Context): VideoProgressDao {
+        return AppDatabase.getInstance(context).videoProgressDao()
     }
 }
