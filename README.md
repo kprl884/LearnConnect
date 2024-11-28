@@ -1,127 +1,47 @@
-# LearnConnect - Online Learning Platform
-LearnConnect, kullanıcıların eğitim içeriklerine kolayca erişebileceği, kurslar alabileceği ve öğrenme deneyimini takip edebileceği modern bir eğitim platformudur.
-🚀 Özellikler
+# LearnConnect
 
-Kurs Yönetimi
+LearnConnect, kullanıcıların online eğitim içeriklerine erişebildiği, video tabanlı bir e-learning mobil uygulamasıdır.
 
-Kursları görüntüleme ve kayıt olma
-Favori kurslara ekleme
-Kurs ilerleme takibi
+## ✅ Tamamlanan Özellikler
 
+### 👤 Kullanıcı İşlemleri
+- [x] Email ve şifre ile kayıt
+- [x] Kullanıcı girişi
+- [x] Profil görüntüleme
 
-Video Player
+### 📚 Kurs Yönetimi
+- [x] Kursları listeleme
+- [x] Kurslara kaydolma
+- [x] Kategorilere göre filtreleme
+- [x] Kurs arama
+- [x] Favori kurslar
 
-Online/Offline video oynatma desteği
-İlerleme kaydetme
-Kaldığın yerden devam etme
+### 🎥 Video İşlemleri
+- [x] Kurs videolarını oynatma
 
+### 🎨 Tema
+- [x] Karanlık mod desteği
+- [x] Splash ekran
 
-Kullanıcı Deneyimi
+## 🛠️ Kullanılan Teknolojiler
 
-Dark/Light tema desteği
-Kişiselleştirilmiş profil
-Sezgisel kullanıcı arayüzü
+- Jetpack Compose 
+- MVVM Mimarisi
+- Dagger Hilt
+- Room Database
+- ExoPlayer
+- WorkManager
+- Retrofit
+- Material Design 3
 
+## 📱 Ekran Görüntüleri
 
+<img width="359" alt="Ekran Resmi 2024-11-28 12 58 07" src="https://github.com/user-attachments/assets/8bbc24c0-77e3-4394-9861-3422dab1c263">
 
-🛠️ Teknolojiler
+<img width="371" alt="Ekran Resmi 2024-11-28 12 58 14" src="https://github.com/user-attachments/assets/e55c2ef9-a0fb-4e47-8646-d14c1550a5d5">
 
-Mimari: Clean Architecture + MVVM
-UI Framework: Jetpack Compose
-Dependency Injection: Hilt
-Local Storage: Room Database
-State Management: Flow & StateFlow
-Video Player: ExoPlayer
-Navigation: Jetpack Navigation
-Theme: Material Design 3
+<img width="351" alt="Ekran Resmi 2024-11-28 12 58 28" src="https://github.com/user-attachments/assets/4e4f3f89-0758-4145-a761-4f3a1b443ac6">
 
-📋 Gereksinimler
+<img width="345" alt="Ekran Resmi 2024-11-28 12 58 40" src="https://github.com/user-attachments/assets/a694a312-4cdd-4c60-b8bf-2b2e8997a6d5">
 
-Android Studio Hedgehog | 2023.1.1
-Minimum SDK 24
-Target SDK 34
-Kotlin 1.9.0
-
-🔧 Kurulum
-
-Projeyi klonlayın:
-
-bashCopygit clone https://github.com/yourusername/LearnConnect.git
-
-Android Studio'da açın ve bağımlılıkların yüklenmesini bekleyin
-local.properties dosyasında gerekli API anahtarlarını tanımlayın:
-
-propertiesCopysdk.dir=/Users/yourusername/Library/Android/sdk
-
-Uygulamayı çalıştırın:
-
-Run > Run 'app'
-veya Shift + F10
-
-
-
-🏗️ Proje Yapısı
-app/
-├── data/
-│   ├── local/
-│   │   ├── dao/
-│   │   └── entity/
-│   └── repository/
-├── domain/
-│   ├── model/
-│   └── usecase/
-├── ui/
-│   ├── course/
-│   ├── profile/
-│   └── video/
-└── utils/
-
-🎯 Mimari
-Proje Clean Architecture prensiplerini takip eder:
-
-Data Layer: Room Database, DataStore ve API ile iletişim
-Domain Layer: Use case'ler ve business logic
-UI Layer: MVVM pattern ile kullanıcı arayüzü
-
-🎨 Tasarım Desenleri
-
-Repository Pattern
-Dependency Injection
-Observer Pattern (Flow)
-Factory Pattern
-Builder Pattern
-
-🔄 State Management
-kotlinCopydata class ProfileUiState(
-    val userName: String = "",
-    val email: String = "",
-    val enrolledCourses: List<CoursePreview> = emptyList(),
-    val favoriteCourses: List<CoursePreview> = emptyList(),
-    val isLoading: Boolean = false,
-    val error: String? = null
-)
-🎥 Video Player Özellikleri
-
-Progress takibi
-Online/Offline mod
-Otomatik ilerleme kaydı
-Özelleştirilmiş kontroller
-
-🌟 Bonus Özellikler
-
-Offline Modu
-
-Videoları indirip offline izleme
-İlerlemeyi local'de saklama
-
-
-Dark/Light Tema
-
-Sistem teması ile senkronizasyon
-Manuel tema değiştirme
-
-
-Kurs Favorileme
-
-Favori kursları kaydetme
-Hızlı erişim
+<img width="375" alt="Ekran Resmi 2024-11-28 12 58 57" src="https://github.com/user-attachments/assets/6402a82d-a741-4c25-9e90-4bc587c48c83">
