@@ -14,7 +14,7 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.learnconnect.R
 import com.example.learnconnect.core.navigation.Screen
-import com.example.learnconnect.utils.Constants.splashDelay
+import com.example.learnconnect.utils.Constants.SPLASH_DELAY
 import kotlinx.coroutines.delay
 
 @Composable
@@ -24,7 +24,7 @@ fun SplashScreen(
     Loader()
 
     LaunchedEffect(key1 = true) {
-        delay(splashDelay)
+        delay(SPLASH_DELAY)
         navController.navigate(Screen.LoginScreen) {
             popUpTo(Screen.SplashScreen) { inclusive = true }
         }
