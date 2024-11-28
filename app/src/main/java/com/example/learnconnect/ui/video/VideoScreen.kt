@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,6 +26,8 @@ fun VideoScreen(
     viewModel: VideoViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    val downloadProgress by viewModel.downloadProgress.collectAsState()
+
     viewModel.loadVideo(videoId)
     Column {
         Spacer(modifier = Modifier.height(128.dp))
@@ -39,6 +43,24 @@ fun VideoScreen(
                     .aspectRatio(16f / 9f)
             )
         }
+        Button(
+            onClick = {
+                viewModel.downloadVideo(
+                    videoId = videoId,
+                    videoUrl = uiState.currentVideo?.onlineUrl ?: ""
+                )
+            }
+        ) {
+            Text("Video'yu İndir")
+        }
+
+        downloadProgress["video1"]?.let { progress ->
+            LinearProgressIndicator(
+                progress = progress,
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
+
         Spacer(modifier = Modifier.weight(1f))
         Row(
             modifier = Modifier

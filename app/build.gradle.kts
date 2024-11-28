@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kspPlugin)
     alias(libs.plugins.kotlinParcelize)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 android {
@@ -81,4 +82,8 @@ dependencies {
     implementation (libs.androidx.media3.exoplayer)
     implementation (libs.androidx.media3.ui)
     implementation (libs.androidx.media3.common)
+    implementation (libs.androidx.work.runtime.ktx)
+    implementation (libs.androidx.hilt.work)
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
+
 }

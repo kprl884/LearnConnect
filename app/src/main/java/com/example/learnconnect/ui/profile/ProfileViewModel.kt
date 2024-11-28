@@ -2,6 +2,7 @@ package com.example.learnconnect.ui.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.learnconnect.core.manager.OfflineManager
 import com.example.learnconnect.data.Extension.toCoursePreviewList
 import com.example.learnconnect.domain.model.Course
 import com.example.learnconnect.domain.model.CoursePreview
@@ -9,6 +10,7 @@ import com.example.learnconnect.domain.repository.AuthRepository
 import com.example.learnconnect.domain.repository.CourseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -17,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val authRepository: AuthRepository,
-    private val courseRepository: CourseRepository
+    private val courseRepository: CourseRepository,
+    private val offlineManager: OfflineManager
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ProfileUiState())
@@ -29,6 +32,25 @@ class ProfileViewModel @Inject constructor(
 
     init {
         loadProfile()
+    }
+
+    private val _downloadProgress = MutableStateFlow<Map<String, Float>>(emptyMap())
+    val downloadProgress: StateFlow<Map<String, Float>> = _downloadProgress.asStateFlow()
+
+    fun downloadVideo(videoId: String, videoUrl: String) {
+        viewModelScope.launch {
+            offlineManager.downloadVideo(videoId, videoUrl)
+            offlineManager.observeDownloadProgress(videoId)
+                .collect { progress ->
+                    _downloadProgress.update { currentMap ->
+                        currentMap + (videoId to progress)
+                    }
+                }
+        }
+    }
+
+    fun cancelDownload(videoId: String) {
+        offlineManager.cancelDownload(videoId)
     }
 
     private fun loadProfile() {

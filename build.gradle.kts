@@ -15,5 +15,5 @@ plugins {
     alias(libs.plugins.hiltPlugin) apply false
     alias(libs.plugins.kotlinParcelize) apply false
     alias(libs.plugins.kotlinSerialization) apply false
-    alias(libs.plugins.kotlinKapt) apply false
+    alias(libs.plugins.jetbrains.kotlin.kapt) apply false
 }
