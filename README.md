@@ -39,6 +39,8 @@ LearnConnect, kullanıcıların online eğitim içeriklerine erişebildiği, vid
 
 <img width="359" alt="Ekran Resmi 2024-11-28 12 58 07" src="https://github.com/user-attachments/assets/8bbc24c0-77e3-4394-9861-3422dab1c263">
 
+<img width="370" alt="Ekran Resmi 2024-11-28 15 10 56" src="https://github.com/user-attachments/assets/5067d6f9-b23a-4f8d-9718-b43c11101c11">
+
 <img width="371" alt="Ekran Resmi 2024-11-28 12 58 14" src="https://github.com/user-attachments/assets/e55c2ef9-a0fb-4e47-8646-d14c1550a5d5">
 
 <img width="351" alt="Ekran Resmi 2024-11-28 12 58 28" src="https://github.com/user-attachments/assets/4e4f3f89-0758-4145-a761-4f3a1b443ac6">
