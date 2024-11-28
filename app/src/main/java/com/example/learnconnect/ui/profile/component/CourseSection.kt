@@ -20,6 +20,7 @@ fun CourseSection(
     courses: List<CoursePreview>,
     onCourseClick: (String) -> Unit,
     onFavoriteClick: (Course) -> Unit,
+    isFavorite: (String) -> Boolean,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -46,7 +47,7 @@ fun CourseSection(
                     course = course,
                     onClick = { onCourseClick(course.id) },
                     modifier = Modifier,
-                    isFavorite = false,
+                    isFavorite = isFavorite(course.id),
                     onFavoriteClick = { courses ->
                         onFavoriteClick(courses)
                     }

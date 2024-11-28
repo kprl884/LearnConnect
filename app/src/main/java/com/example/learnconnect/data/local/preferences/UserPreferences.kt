@@ -49,6 +49,6 @@ class UserPreferences(context: Context) {
     companion object {
         private const val PREFS_NAME = "learn_connect_prefs"
         private const val KEY_USER = "user"
-        private const val KEY_LOGGED_IN = "logged_in" // Yeni key
+        private const val KEY_LOGGED_IN = "logged_in"
     }
 }

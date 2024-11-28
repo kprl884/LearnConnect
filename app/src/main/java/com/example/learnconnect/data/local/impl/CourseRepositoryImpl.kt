@@ -12,6 +12,7 @@ import com.example.learnconnect.domain.repository.CourseRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CourseRepositoryImpl(
     private val courseDao: CourseDao,
@@ -32,7 +33,7 @@ class CourseRepositoryImpl(
     override suspend fun getAllCourses(): Result<List<Course>> {
         return try {
             val courses = courseDao.getAllCourses()
-            val currentUserId = userPreferences.getUser()?.id
+            val currentUserId = userPreferences.getUser()?.email
 
             val mappedCourses = courses.map { courseEntity ->
                 Course(
@@ -65,7 +66,7 @@ class CourseRepositoryImpl(
 
     override suspend fun getEnrolledCourses(): Result<List<Course>> {
         return try {
-            val userId = userPreferences.getUser()?.id ?: return Result.failure(Exception("User not logged in"))
+            val userId = userPreferences.getUser()?.email ?: return Result.failure(Exception("User not logged in"))
             val enrolledCourses = courseDao.getEnrolledCourses(userId)
 
             val mappedCourses = enrolledCourses.map { courseEntity ->
@@ -92,16 +93,24 @@ class CourseRepositoryImpl(
 
     override suspend fun enrollCourse(courseId: String): Result<Boolean> {
         return try {
-            val userId = userPreferences.getUser()?.id ?: return Result.failure(Exception("User not logged in"))
+            val userId = userPreferences.getUser()?.email ?: return Result.failure(Exception("User not logged in"))
 
-            val enrolledCourse = EnrolledCourseEntity(
-                courseId = courseId,
-                userId = userId,
-                enrolledDate = System.currentTimeMillis(),
-                progress = 0f
-            )
+            withContext(Dispatchers.IO) {
+                val enrolledCourse = EnrolledCourseEntity(
+                    courseId = courseId,
+                    userId = userId,
+                    enrolledDate = System.currentTimeMillis(),
+                    progress = 0f
+                )
 
-            courseDao.enrollCourse(enrolledCourse)
+                courseDao.enrollCourse(enrolledCourse)
+            }
+
+            withContext(Dispatchers.IO) {
+                val courses = courseDao.getAllCourses()
+                courseDao.insertCourses(courses)
+            }
+
             Result.success(true)
         } catch (e: Exception) {
             Result.failure(e)
@@ -110,7 +119,7 @@ class CourseRepositoryImpl(
 
     override suspend fun getCourseDetail(courseId: String): Result<Course> {
         return try {
-            val userId = userPreferences.getUser()?.id
+            val userId = userPreferences.getUser()?.email
             val courseEntity = courseDao.getCourseById(courseId) ?: throw Exception("Course not found")
 
             val course = Course(

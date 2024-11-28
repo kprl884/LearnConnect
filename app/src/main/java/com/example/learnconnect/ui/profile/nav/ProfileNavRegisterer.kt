@@ -19,12 +19,11 @@ class ProfileNavRegisterer : NavRegisterer {
             val viewModel = hiltViewModel<ProfileViewModel>()
 
             ProfileScreen(
+                navController,
                 uiState = viewModel.uiState.collectAsState().value,
                 onFavoriteClick = { course -> viewModel.toggleFavorite(course) },
                 onLogoutClick = { viewModel.logout() },
-                onCourseClick = { courseId ->
-                    //navController.navigate(Screen.CourseDetailScreen.createRoute(courseId))
-                }
+                onCourseClick = { courseId -> }
             )
         }
     }

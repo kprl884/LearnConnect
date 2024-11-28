@@ -19,7 +19,7 @@ fun LogoutButton(
     modifier: Modifier = Modifier
 ) {
     Button(
-        onClick = onClick,
+        onClick = { onClick() },
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp),

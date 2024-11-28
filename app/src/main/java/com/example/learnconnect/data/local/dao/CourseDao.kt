@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import com.example.learnconnect.data.local.entity.CourseEntity
 import com.example.learnconnect.data.local.entity.EnrolledCourseEntity
 
@@ -26,6 +27,7 @@ interface CourseDao {
     """)
     suspend fun getEnrolledCourses(userId: String): List<CourseEntity>
 
+    @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun enrollCourse(enrolledCourse: EnrolledCourseEntity)
 

@@ -60,7 +60,14 @@ class ProfileViewModel @Inject constructor(
     fun logout() {
         viewModelScope.launch {
             try {
-                authRepository.logout()
+                val response = authRepository.logout()
+                if (response.isSuccess) {
+                    _uiState.update {
+                        it.copy(
+                            successLogout = true
+                        )
+                    }
+                }
             } catch (e: Exception) {
                 _uiState.update { it.copy(error = e.message) }
             }
@@ -90,5 +97,6 @@ data class ProfileUiState(
     val enrolledCourses: List<CoursePreview> = emptyList(),
     val favoriteCourses: List<CoursePreview> = emptyList(),
     val isLoading: Boolean = false,
+    val successLogout: Boolean = false,
     val error: String? = null
 )

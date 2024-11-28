@@ -36,6 +36,9 @@ fun MyCoursesScreen(
             courses = uiState.enrolledCourses,
             onCourseClick = onCourseClick,
             onFavoriteClick = onFavoriteClick,
+            isFavorite = { courseId ->
+                uiState.favoriteCourses.any { it.id == courseId }
+            },
             modifier = Modifier
         )
     }
