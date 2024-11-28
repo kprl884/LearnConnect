@@ -34,7 +34,8 @@ LearnConnect, kullanıcıların online eğitim içeriklerine erişebildiği, vid
 - Retrofit
 - Material Design 3
 
-## 📱 Ekran Görüntüleri
+## 📱 Ekran Görüntüleri  
+
 
 <img width="359" alt="Ekran Resmi 2024-11-28 12 58 07" src="https://github.com/user-attachments/assets/8bbc24c0-77e3-4394-9861-3422dab1c263">
 
@@ -44,4 +45,7 @@ LearnConnect, kullanıcıların online eğitim içeriklerine erişebildiği, vid
 
 <img width="345" alt="Ekran Resmi 2024-11-28 12 58 40" src="https://github.com/user-attachments/assets/a694a312-4cdd-4c60-b8bf-2b2e8997a6d5">
 
-<img width="375" alt="Ekran Resmi 2024-11-28 12 58 57" src="https://github.com/user-attachments/assets/6402a82d-a741-4c25-9e90-4bc587c48c83">
+https://github.com/user-attachments/assets/492d7ebd-3305-4688-b31f-45e8c5c2cb82
+
+
+https://github.com/user-attachments/assets/fe13db8b-1d3d-4412-9e88-713e26e8e74b
