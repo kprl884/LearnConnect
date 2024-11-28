@@ -6,6 +6,7 @@ import com.example.learnconnect.data.local.AppDatabase
 import com.example.learnconnect.data.local.dao.CourseDao
 import com.example.learnconnect.data.local.dao.FavoriteCoursesDao
 import com.example.learnconnect.data.local.dao.UserDao
+import com.example.learnconnect.data.local.dao.VideoDao
 import com.example.learnconnect.data.local.dao.VideoProgressDao
 import com.example.learnconnect.data.local.preferences.UserPreferences
 import dagger.Module
@@ -58,5 +59,11 @@ object DatabaseModule {
     @Singleton
     fun provideVideoProgressDao(context: Context): VideoProgressDao {
         return AppDatabase.getInstance(context).videoProgressDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideVideoDao(context: Context): VideoDao {
+        return AppDatabase.getInstance(context).videoDao()
     }
 }
