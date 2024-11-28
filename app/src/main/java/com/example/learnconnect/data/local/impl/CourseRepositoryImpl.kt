@@ -53,7 +53,8 @@ class CourseRepositoryImpl(
                             userId,
                             courseEntity.id
                         )
-                    } ?: 0f
+                    } ?: 0f,
+                    category = courseEntity.category
                 )
             }
             Result.success(mappedCourses)
@@ -79,7 +80,8 @@ class CourseRepositoryImpl(
                     progress = courseDao.getCourseProgress(
                         userId,
                         courseEntity.id
-                    )
+                    ),
+                    category = courseEntity.category
                 )
             }
             Result.success(mappedCourses)
@@ -129,7 +131,8 @@ class CourseRepositoryImpl(
                         it,
                         courseId
                     )
-                } ?: 0f
+                } ?: 0f,
+                category = courseEntity.category
             )
             Result.success(course)
         } catch (e: Exception) {

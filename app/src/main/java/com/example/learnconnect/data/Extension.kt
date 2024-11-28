@@ -9,7 +9,8 @@ object Extension {
         courseId = id,
         title = title,
         instructor = instructorName,
-        thumbnailUrl = thumbnailUrl
+        thumbnailUrl = thumbnailUrl,
+        category = category
     )
 
     fun FavoriteCourseEntity.toCourse() = Course(
@@ -20,17 +21,18 @@ object Extension {
         description = "",
         duration = "",
         isEnrolled = true,
-        progress = 0f
+        progress = 0f,
+        category = category
     )
 
-    // Extension functions
     fun Course.toCoursePreview() = CoursePreview(
         id = id,
         title = title,
         instructor = instructorName,
         thumbnailUrl = thumbnailUrl,
         progress = progress,
-        isFavorite = false  // Bu değer repository'den kontrol edilebilir
+        isFavorite = false,
+        category = category
     )
 
     fun List<Course>.toCoursePreviewList() = map { it.toCoursePreview() }

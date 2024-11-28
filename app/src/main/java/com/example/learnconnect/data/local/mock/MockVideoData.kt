@@ -18,21 +18,51 @@ object MockVideoData {
         ),
         Video(
             id = "3",
-            title = "Flutter ile Cross-Platform Geliştirme",
+            title = "İngilizce",
             onlineUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
             offlineUrl = "asset:///videos/compose_basics.mp4"
         ),
         Video(
             id = "4",
-            title = "React Native Masterclass",
+            title = "İspanyolca",
             onlineUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
             offlineUrl = "asset:///videos/compose_basics.mp4"
         ),
         Video(
             id = "5",
-            title = "Unity ile Oyun Programlama",
+            title = "Tekerleğin Sırları",
             onlineUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
             offlineUrl = "asset:///videos/compose_basics.mp4"
-        )
+        ),
+        Video(
+            id = "6",
+            title = "En Hızlı Arabalar",
+            onlineUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            offlineUrl = "asset:///videos/compose_basics.mp4"
+        ),
+        Video(
+            id = "7",
+            title = "Bitki Dünyasıa",
+            onlineUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            offlineUrl = "asset:///videos/compose_basics.mp4"
+        ),
+        Video(
+            id = "8",
+            title = "Ceviz Ağacı ve Bakımı",
+            onlineUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            offlineUrl = "asset:///videos/compose_basics.mp4"
+        ),
+        Video(
+            id = "9",
+            title = "Tatlı Ustası Olma Kurs",
+            onlineUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            offlineUrl = "asset:///videos/compose_basics.mp4"
+        ),
+        Video(
+            id = "10",
+            title = "Master Şef Olma Kursu",
+            onlineUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            offlineUrl = "asset:///videos/compose_basics.mp4"
+        ),
     )
 }

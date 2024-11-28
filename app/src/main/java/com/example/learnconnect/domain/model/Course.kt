@@ -3,6 +3,7 @@ package com.example.learnconnect.domain.model
 data class Course(
     val id: String,
     val title: String,
+    val category: String,
     val description: String,
     val thumbnailUrl: String,
     val instructorName: String,

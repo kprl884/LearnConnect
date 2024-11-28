@@ -23,6 +23,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.learnconnect.core.navigation.Screen
 import com.example.learnconnect.ui.home.component.CourseCard
+import com.example.learnconnect.ui.home.component.SearchBar
 
 @Composable
 fun HomeScreen(
@@ -42,6 +43,23 @@ fun HomeScreen(
             onMyCoursesClick = onNavigateToMyCourses
         )
 
+        SearchBar(
+            searchQuery = uiState.searchQuery,
+            onSearchQueryChange = { query ->
+                viewModel.onEvent(HomeUiEvent.OnSearchQueryChange(query))
+            }
+        )
+        val filteredCourses = uiState.courses.filter { course ->
+            course.title.contains(
+                uiState.searchQuery,
+                ignoreCase = true
+            ) ||
+                    course.category.contains(
+                        uiState.searchQuery,
+                        ignoreCase = true
+                    )
+        }
+
         if (uiState.isLoading) {
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -51,10 +69,10 @@ fun HomeScreen(
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            items(uiState.courses) { course ->
+            items(filteredCourses) { course ->
                 CourseCard(
                     course = course,
-                    onVideoClick = {courseId ->
+                    onVideoClick = { courseId ->
                         navController.navigate(Screen.VideoScreen(courseId))
                     },
                     onEnrollClick = {

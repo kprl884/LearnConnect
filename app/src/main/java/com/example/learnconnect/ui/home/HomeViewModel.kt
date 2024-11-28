@@ -28,6 +28,11 @@ class HomeViewModel @Inject constructor(
         when (event) {
             is HomeUiEvent.OnEnrollCourse -> enrollCourse(event.courseId)
             is HomeUiEvent.OnRefreshCourses -> fetchCourses()
+            is HomeUiEvent.OnSearchQueryChange -> {
+                _uiState.update { currentState ->
+                    currentState.copy(searchQuery = event.query)
+                }
+            }
         }
     }
 
@@ -76,13 +81,15 @@ class HomeViewModel @Inject constructor(
 }
 
 data class HomeUiState(
-    val courses: List<Course> = emptyList(),
     val isLoading: Boolean = false,
     val isEnrolling: Boolean = false,
+    val courses: List<Course> = emptyList(),
+    val searchQuery: String = "",
     val error: String? = null
 )
 
 sealed class HomeUiEvent {
     data class OnEnrollCourse(val courseId: String) : HomeUiEvent()
     data object OnRefreshCourses : HomeUiEvent()
+    data class OnSearchQueryChange(val query: String) : HomeUiEvent()
 }

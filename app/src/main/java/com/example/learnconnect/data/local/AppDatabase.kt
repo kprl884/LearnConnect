@@ -16,7 +16,7 @@ import com.example.learnconnect.data.local.entity.VideoProgress
 
 @Database(
     entities = [UserEntity::class, FavoriteCourseEntity::class, VideoProgress::class, CourseEntity::class, EnrolledCourseEntity::class],
-    version = 4
+    version = 5
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao

@@ -54,6 +54,7 @@ fun CourseCard(
                         id = course.id,
                         title = course.title,
                         description = "",
+                        category = course.category,
                         thumbnailUrl = course.thumbnailUrl,
                         instructorName = course.instructor,
                         duration = "",

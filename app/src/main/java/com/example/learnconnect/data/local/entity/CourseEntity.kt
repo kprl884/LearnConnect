@@ -8,7 +8,8 @@ data class CourseEntity(
     @PrimaryKey val id: String,
     val title: String,
     val description: String,
+    val category: String,
     val thumbnailUrl: String,
     val instructorName: String,
-    val duration: String
+    val duration: String,
 )
