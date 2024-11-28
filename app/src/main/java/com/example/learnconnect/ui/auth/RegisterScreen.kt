@@ -27,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -34,6 +35,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.learnconnect.R
 
 @Composable
 fun RegisterScreen(
@@ -61,7 +63,7 @@ fun RegisterScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Create Account",
+            text = stringResource(R.string.create_account),
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(vertical = 32.dp)
         )
@@ -69,7 +71,7 @@ fun RegisterScreen(
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("Email") },
+            label = { Text(stringResource(R.string.emaill)) },
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Next
@@ -82,7 +84,7 @@ fun RegisterScreen(
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Password") },
+            label = { Text(stringResource(R.string.passwordd)) },
             visualTransformation = if (passwordVisible)
                 VisualTransformation.None else PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(
@@ -94,7 +96,7 @@ fun RegisterScreen(
                     Icon(
                         if (passwordVisible) Icons.Default.Visibility
                         else Icons.Default.VisibilityOff,
-                        contentDescription = "Toggle password visibility"
+                        contentDescription = stringResource(R.string.toggle_password_visibility)
                     )
                 }
             },
@@ -106,7 +108,7 @@ fun RegisterScreen(
         OutlinedTextField(
             value = confirmPassword,
             onValueChange = { confirmPassword = it },
-            label = { Text("Confirm Password") },
+            label = { Text(stringResource(R.string.confirm_password)) },
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Password,
@@ -141,12 +143,12 @@ fun RegisterScreen(
                     modifier = Modifier.size(24.dp)
                 )
             } else {
-                Text("Register")
+                Text(stringResource(R.string.register))
             }
         }
 
         TextButton(onClick = onNavigateToLogin) {
-            Text("Already have an account? Login")
+            Text(stringResource(R.string.already_have_an_account_login))
         }
     }
 }

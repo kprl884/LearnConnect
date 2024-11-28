@@ -14,8 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.learnconnect.R
 import com.example.learnconnect.coreui.VideoPlayer
 
 @Composable
@@ -50,7 +52,7 @@ fun VideoScreen(
                 checked = uiState.isOfflineMode,
                 onCheckedChange = { viewModel.toggleOfflineMode() }
             )
-            Text(if (uiState.isOfflineMode) "Offline" else "Online")
+            Text(if (uiState.isOfflineMode) stringResource(R.string.offline) else stringResource(R.string.online))
         }
     }
 }

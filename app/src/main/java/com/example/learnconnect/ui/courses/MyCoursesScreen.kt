@@ -9,6 +9,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.example.learnconnect.R
 import com.example.learnconnect.domain.model.Course
 import com.example.learnconnect.ui.profile.component.CourseSection
 import com.example.learnconnect.ui.profile.component.ProfileHeader
@@ -32,7 +34,7 @@ fun MyCoursesScreen(
         )
 
         CourseSection(
-            title = "Kayıtlı Kurslarım",
+            title = stringResource(R.string.kay_tl_kurslar_m),
             courses = uiState.enrolledCourses,
             onCourseClick = onCourseClick,
             onFavoriteClick = onFavoriteClick,

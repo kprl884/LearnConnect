@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">LearnConnect</string>
+    <string name="kay_tl_kurslar_m">Kayıtlı Kurslarım</string>
+    <string name="sign_in">Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_inn">Sign In</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign In</string>
+    <string name="create_account">Create Account</string>
+    <string name="emaill">Email</string>
+    <string name="passwordd">Password</string>
+    <string name="toggle_password_visibility">Toggle password visibility</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="t_m_kurslar">Tüm Kurslar</string>
+    <string name="kay_tl_kurslar_mn">Kayıtlı Kurslarım</string>
+    <string name="favori_kurslar_m">Favori Kurslarım</string>
+    <string name="offline">Offline</string>
+    <string name="online">Online</string>
 </resources>

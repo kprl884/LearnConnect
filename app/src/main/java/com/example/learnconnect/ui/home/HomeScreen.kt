@@ -17,10 +17,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.example.learnconnect.R
 import com.example.learnconnect.core.navigation.Screen
 import com.example.learnconnect.ui.home.component.CourseCard
 import com.example.learnconnect.ui.home.component.SearchBar
@@ -96,12 +98,12 @@ fun TopBar(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = "Tüm Kurslar",
+            text = stringResource(R.string.t_m_kurslar),
             style = MaterialTheme.typography.headlineMedium
         )
 
         TextButton(onClick = onMyCoursesClick) {
-            Text("Kayıtlı Kurslarım")
+            Text(stringResource(R.string.kay_tl_kurslar_mn))
         }
     }
 }

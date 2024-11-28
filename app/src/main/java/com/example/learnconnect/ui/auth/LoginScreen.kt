@@ -20,11 +20,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.learnconnect.R
 
 @Composable
 fun LoginScreen(
@@ -50,7 +51,7 @@ fun LoginScreen(
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Sign In",
+            text = stringResource(R.string.sign_in),
             style = MaterialTheme.typography.headlineMedium
         )
 
@@ -59,7 +60,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("Email") },
+            label = { Text(stringResource(R.string.email)) },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -68,7 +69,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Password") },
+            label = { Text(stringResource(R.string.password)) },
             visualTransformation = PasswordVisualTransformation(),
             modifier = Modifier.fillMaxWidth()
         )
@@ -89,19 +90,13 @@ fun LoginScreen(
                 .fillMaxWidth()
                 .padding(vertical = 16.dp)
         ) {
-            Text("Sign In")
+            Text(stringResource(R.string.sign_inn))
         }
 
         TextButton(
             onClick = { navigateRegisterScreen() }
         ) {
-            Text("Already have an account? Sign In")
+            Text(stringResource(R.string.already_have_an_account_sign_in))
         }
     }
-}
-
-@PreviewScreenSizes
-@Composable
-fun LoginScreenPreview() {
-    //LoginScreen()
 }

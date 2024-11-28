@@ -9,7 +9,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import com.example.learnconnect.R
 import com.example.learnconnect.core.navigation.Screen
 import com.example.learnconnect.domain.model.Course
 import com.example.learnconnect.ui.profile.component.CourseSection
@@ -42,7 +44,7 @@ fun ProfileScreen(
         )
 
         CourseSection(
-            title = "Favori Kurslarım",
+            title = stringResource(R.string.favori_kurslar_m),
             courses = uiState.favoriteCourses,
             onCourseClick = onCourseClick,
             onFavoriteClick = onFavoriteClick,
